@@ -12,7 +12,7 @@ const Home: React.FC = () => {
       <main>
         <NavBar />
         <h1>Hello World</h1>
-        <button>Click-me</button>
+        <button>Clique aqui</button>
       </main>
     </div>
   )
