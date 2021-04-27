@@ -35,6 +35,7 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" />
           <link rel="icon" href="https://rocketseat.com.br/favicon.ico" />
