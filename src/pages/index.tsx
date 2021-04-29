@@ -1,21 +1,15 @@
 import Head from 'next/head';
-import React, { useState } from 'react'
+import React from 'react'
 import NavBar from '../components/NavBar'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store';
+
+import { increment, decrement } from '../store/Stock.store'
 
 const Home: React.FC = () => {
 
-  const [count, setCount] = useState<number>(0);
-
-  const handlerIncrement = () => {
-    setCount(count + 1);
-  }
-
-  const handlerDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  }
+  const dispatch = useDispatch();
+  const stock = useSelector((state: RootState) => state.stock)
 
   return (
     <div>
@@ -27,12 +21,12 @@ const Home: React.FC = () => {
         <NavBar />
         <h1>Hello World</h1>
         <br/>
-        <h2>{count}</h2>
-        <button onClick={handlerIncrement}>Adicionar</button>
-        <button onClick={handlerDecrement}>Remover</button>
+        <h2>{stock.counter}</h2>
+        <button onClick={() => dispatch(increment())}>Adicionar</button>
+        <button onClick={() => dispatch(decrement())}>Remover</button>
       </main>
     </div>
   )
 }
 
-export default connect()(Home)
+export default Home
