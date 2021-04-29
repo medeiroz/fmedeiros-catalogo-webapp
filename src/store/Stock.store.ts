@@ -20,20 +20,21 @@ async function sleep(ms: number) {
   return await new Promise(resolve => setTimeout(resolve, ms))
 }
 
-
-export const { increment, decrement} = stock.actions
-export default stock.reducer
-
-export function asyncIncrement (amount: number): AppThunk {
+function asyncIncrement (amount: number): AppThunk {
   return async function (dispatch: AppDispatch) {
     await sleep(2000)
     dispatch(increment(amount))
   }
 }
 
-export function asyncDecrement (amount: number): AppThunk {
+function asyncDecrement (amount: number): AppThunk {
   return async function (dispatch: AppDispatch) {
     await sleep(2000)
     dispatch(decrement(amount))
   }
 }
+
+const { increment, decrement } = stock.actions
+
+export { increment, decrement, asyncIncrement, asyncDecrement }
+export default stock.reducer
