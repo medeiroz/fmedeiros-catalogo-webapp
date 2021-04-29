@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store';
 
-import { increment, decrement } from '../store/Stock.store'
+import { asyncIncrement, increment, decrement, asyncDecrement } from '../store/Stock.store'
 
 const Home: React.FC = () => {
 
@@ -22,8 +22,11 @@ const Home: React.FC = () => {
         <h1>Hello World</h1>
         <br/>
         <h2>{stock.counter}</h2>
-        <button onClick={() => dispatch(increment())}>Adicionar</button>
-        <button onClick={() => dispatch(decrement())}>Remover</button>
+        <button onClick={() => dispatch(increment(1))}>Adicionar</button>
+        <button onClick={() => dispatch(decrement(1))}>Remover</button>
+        <br/>
+        <button onClick={() => dispatch(asyncIncrement(1))}>async Adicionar</button>
+        <button onClick={() => dispatch(asyncDecrement(1))}>async Remover</button>
       </main>
     </div>
   )
