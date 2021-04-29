@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import NavBar from '../components/NavBar';
+import { connect } from 'react-redux'
 
 const Home: React.FC = () => {
   return (
@@ -18,4 +19,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default connect()(Home)
