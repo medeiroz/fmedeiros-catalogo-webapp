@@ -1,10 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import StockReducer from './Stock.store'
+import AuthReducer from './Auth.store'
 
 const store = configureStore({
   reducer: {
-    stock: StockReducer
+    stock: StockReducer,
+    auth: AuthReducer,
   }
 })
 
