@@ -1,7 +1,7 @@
 import { AppDispatch, AppThunk } from './index';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAuthLoginPayload, IAuthState } from './contracts/IAuth';
-import { AuthRepository } from '../repository/AuthRepository';
+import { AuthRepository } from '../repositories/AuthRepository';
 
   const initialState : IAuthState = {
     authenticated: false,

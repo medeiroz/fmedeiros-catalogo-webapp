@@ -1,4 +1,4 @@
-import { IUser } from "../../entity/IUser";
+import { IUser } from "../../entities/IUser";
 
 interface IAuthState {
   authenticated: boolean;

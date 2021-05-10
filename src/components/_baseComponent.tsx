@@ -2,9 +2,9 @@ import Head from 'next/head';
 import React from 'react'
 import NavBar from '../components/NavBar'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../store';
+import { RootState } from '../stores';
 
-import { asyncIncrement, increment, decrement, asyncDecrement } from '../store/Stock.store'
+import { asyncIncrement, increment, decrement, asyncDecrement } from '../stores/Stock.store'
 
 const Home: React.FC = () => {
 

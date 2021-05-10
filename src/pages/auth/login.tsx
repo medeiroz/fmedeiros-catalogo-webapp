@@ -1,32 +1,53 @@
 import Head from 'next/head';
+
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../store';
+import {
+  withAuthUser,
+  AuthAction,
+  withAuthUserTokenSSR,
+} from 'next-firebase-auth'
+import FirebaseAuth from '../../components/FireBaseAuth'
 
-import { asyncLogin } from '../../store/Auth.store'
+const styles = {
+  content: {
+    padding: `8px 32px`,
+  },
+  textContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: 16,
+  },
+}
 
-const Home: React.FC = () => {
-
-  const dispatch = useDispatch();
-  const auth = useSelector((state: RootState) => state.auth)
+const Auth: React.FC = () => {
 
   return (
     <div>
       <Head>
-        <title>HomePage</title>
+        <meta charSet="UTF-8" />
+        <title>Login | Catálogo</title>
       </Head>
 
       <main>
-        <h1>Hello World</h1>
-        <br/>
-        <h1>Logeed: {auth?.user?.name}</h1>
-        <br/>
-        <button onClick={() => dispatch(asyncLogin({email: 'smedeiros', password: '123456'}))}>
-          Entrar
-        </button>
+        <div style={styles.content}>
+          <h3>Sign in</h3>
+          <div style={styles.textContainer}>
+            <p>
+              This auth page is <b>not</b> static. It will server-side redirect to the
+              app if the user is already authenticated.
+            </p>
+          </div>
+          <div>
+            <FirebaseAuth />
+          </div>
+        </div>
       </main>
     </div>
   )
 }
 
-export default Home
+export const getServerSideProps = withAuthUserTokenSSR({
+  whenAuthed: AuthAction.REDIRECT_TO_APP,
+})()
+
+export default withAuthUser({ whenAuthed: AuthAction.REDIRECT_TO_APP })(Auth)

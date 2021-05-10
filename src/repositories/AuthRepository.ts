@@ -1,6 +1,6 @@
-import { IUser } from './../entity/IUser';
-import { IAuthLoginPayload } from '../store/contracts/IAuth';
-import { HttpClient } from "./HttpClient";
+import { IUser } from '../entities/IUser';
+import { IAuthLoginPayload } from '../stores/contracts/IAuth';
+import { HttpClient } from "../services/HttpClient";
 
 class AuthRepository extends HttpClient {
 
