@@ -25,6 +25,10 @@ const Catalog: React.FC = () => {
       <main>
         <h1>Catalog Produtc</h1>
         <br/>
+        <Link href="/catalog">
+        <a>Voltar</a>
+        </Link>
+        <br/>
         { data.name }
       </main>
     </div>

@@ -9,7 +9,7 @@ const login = async (request: NextApiRequest, response: NextApiResponse) => {
   try {
     await setAuthCookies(request, response)
   } catch (e) {
-    return response.status(500).json({ error: 'Unexpected error.' })
+    return response.status(500).json({ error: e.message })
   }
   return response.status(200).json({ success: true })
 }
